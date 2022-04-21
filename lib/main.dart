@@ -1,5 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'detail.dart';
+import 'homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,48 +12,46 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      title: 'Musional',
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color.fromRGBO(251, 197, 49, 1),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: SplashScrn(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class SplashScrn extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _SplashScrnState createState() => _SplashScrnState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _SplashScrnState extends State<SplashScrn> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 2),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => MyHomePage())));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color.fromRGBO(249, 233, 132, 1),
-        child: Padding(
-          padding: EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
-          child: ListView(
-            children: [
-              Card(
-                child: ListTile(
-                  leading: Image.asset('assets/img/bagimuNegeri.jpg'),
-                  title: Text("Bagimu Negeri"),
-                  subtitle: Text("Kusbini"),
-                  trailing: Icon(Icons.favorite),
-                  onTap: () => {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Detail(
-                                title: "Bagimu Negeri",
-                                author: "Kusbini",
-                                path: "assets/img/bagimuNegeri.jpg")))
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
+        body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width * 0.5,
+            child: Image.asset('assets/img/icon.png'),
+          )
+        ],
       ),
-    );
+    ));
   }
 }

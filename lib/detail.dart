@@ -10,6 +10,20 @@ class Detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('$title - $author',
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'GothamBold',
+              fontSize: 14,
+            ),
+            textAlign: TextAlign.center),
+        backgroundColor: Color.fromRGBO(24, 20, 20, 1),
+        bottomOpacity: 0.0,
+        elevation: 0.0,
+      ),
+      backgroundColor: Color.fromRGBO(24, 20, 20, 1),
       body: Padding(
         padding: EdgeInsets.all(10),
         child: Center(
@@ -35,8 +49,49 @@ class Detail extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 40),
-              Text("Judul lagu: $title"),
-              Text("Pencipta: $author")
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Judul lagu:",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'GothamBold',
+                      fontSize: 14,
+                    ),
+                  ),
+                  Text(
+                    " $title",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Gotham',
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Judul lagu:",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'GothamBold',
+                      fontSize: 14,
+                    ),
+                  ),
+                  Text(
+                    " $author",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Gotham',
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
