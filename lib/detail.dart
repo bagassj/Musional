@@ -75,7 +75,7 @@ class Detail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Judul lagu:",
+                    "Pencipta:",
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'GothamBold',
